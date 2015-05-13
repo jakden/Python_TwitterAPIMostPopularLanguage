@@ -1,9 +1,9 @@
-#!/usr/bin/env python
+
 import json
 import pandas as pd
-import matplotlib.pylot as plt
+import matplotlib.pyplot as plt
 
-tweets_data_path = 'C:/Python34/Scripts/Python_TwitterAPIMostPopularLanguage/twitter_data.txt'
+tweets_data_path = 'C:/Python34/Scripts/Python_TwitterAPIMostPopularLanguage/twitterdata.txt'
 
 tweets_data = []
 tweets_file = open(tweets_data_path, "r")
@@ -13,31 +13,31 @@ for line in tweets_file:
         tweets_data.append(tweet)
     except:
         continue
+dict1 = tweets_data[1]
+if 'lang' in dict1:
+  print("blah")
+else:
+  print("boo")
 
-print(len(tweets_data))        
 
-tweets = pd.DataFrame()
+"""tweets_dataSearchable = (tweets_data[1]).lower()
+termRequest = input('What keyword are you looking for: ' ).lower()
 
-tweets['text'] = map(lambda tweet: tweet['text'], tweets_data)
-tweets['lang'] = map(lambda tweet: tweet['lang'], tweets_data)
-tweets['country'] = map(lambda tweet: tweet['place']['country'] if tweet['place'] != None else None, tweets_data)
+termSearched = ([s for s in tweet_dataSearchable if termRequest in s])
 
-tweets_by_lang = tweets['lang'].value_counts()
+if termSearched == "":
+	print(termSearched)
+	print('No text found')
 
-fig, ax = plt.subplots()
-ax.tick_params(axis='x', labelsize=15)
-ax.tick_params(axis='y', labelsize=10)
-ax.set_xlabel('Languages', fontsize=15)
-ax.set_ylabel('Number of tweets' , fontsize=15)
-ax.set_title('Top 5 languages', fontsize=15, fontweight='bold')
-tweets_by_lang[:5].plot(ax=ax, kind='bar', color='red')
+if termSearched == terSearched:
+	print(termSearched).count()"""
 
-tweets_by_country = tweets['country'].value_counts()
 
-fig, ax = plt.subplots()
-ax.tick_params(axis='x', labelsize=15)
-ax.tick_params(axis='y', labelsize=10)
-ax.set_xlabel('Countries', fontsize=15)
-ax.set_ylabel('Number of tweets' , fontsize=15)
-ax.set_title('Top 5 countries', fontsize=15, fontweight='bold')
-tweets_by_country[:5].plot(ax=ax, kind='bar', color='blue')
+
+
+
+
+
+
+
+
